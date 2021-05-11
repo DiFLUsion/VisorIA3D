@@ -15,9 +15,11 @@ require([
     "esri/widgets/ScaleBar",
     "esri/widgets/Popup",
     "esri/views/SceneView",
+    "esri/renderers/UniqueValueRenderer",
+    "esri/symbols/LineSymbol3DLayer",
     "esri/symbols/LineSymbol3D",
     "esri/renderers/SimpleRenderer",
-    "esri/symbols/SimpleMarkerSymbol"
+    "dojo/domReady!"
 
 ], function (
     Map,
@@ -36,10 +38,11 @@ require([
     ScaleBar,
     Popup,
     SceneView,
+    UniqueValueRenderer,
+    LineSymbol3DLayer,
     LineSymbol3D,
-    SimpleRenderer,
-    SimpleMarkerSymbol
-    ) {
+    SimpleRenderer
+) {
 
     let layerViewBrotes;
 
@@ -62,7 +65,6 @@ require([
         },
         renderer: {
             type: "simple",
-            field: "serotipo",
             symbol: {
                 type: "simple-marker",
                 color: [255, 0, 0, 0.5],
@@ -308,7 +310,7 @@ require([
     })
 
     function getInfoAlertas(feature) {
-       /*  view.graphics.removeAll() */
+        /*  view.graphics.removeAll() */
 
         var graphic, attributes, content;
 
@@ -364,49 +366,39 @@ require([
 
     }
 
+    /* let symbol = {
+        type: "line-3d",  // autocasts as new LineSymbol3D()
+        symbolLayers: [{
+          type: "path",  // autocasts as new PathSymbol3DLayer()
+          profile: "circle",
+          width: 10,    // width of the tube in meters
+          material: { color: [ 128,128,128 ] }
+        }]
+      } */
+
+      var interstateSymbolRutas = new LineSymbol3D({
+        symbolLayers: [
+          new LineSymbol3DLayer({
+            material: { color: [255, 51, 51, 0.8] },
+            size: 1
+          })
+        ]
+      });
+
+      
+    var rendererRutas = new SimpleRenderer({
+          
+          symbol: interstateSymbolRutas
+        
+      });
 
     /// DEFINICIÓN DEL LOS RUTA MIGRATORIA
     const layerRutaM = new GeoJSONLayer({
         url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutas.geojson",
         copyright: "INIA",
         title: "Rutas activadas por riesgo",
-
-        renderer: {
-            type: "line-3d",
-            symbol: {
-                type: "line",
-                supportsQuery: true,
-                outline: {
-                    color: [255, 51, 51],
-                    width: 0.05
-                }
-            }
-        },
-
-       /*  renderer: {
-            type: "line-3d",
-            outline: {
-                type: "simple-line", // Not needed, as type `simple-line` is implied
-                
-                color: [ 255, 128, 45 ]
-              }
-        }, */
-
-
-        /* renderer: {
-            type: "line-3d",
-            symbolLayers: {
-                type: "line",  // autocasts as new PathSymbol3DLayer()
-                profile: "circle",
-                width: 10,    // width of the tube in meters
-                material: {color: [128, 128, 128] },
-                outline: {
-                    color: "black",
-                    size: 0.5
-                  }
-            }
-
-        }, */
+        outFields: ["*"],
+        renderer: rendererRutas,
 
         popupTemplate: {
             title: "Id Alerta de la ruta: {idAlerta}",
@@ -432,26 +424,29 @@ require([
 
     }
 
+    var interstateSymbolMigrations = new LineSymbol3D({
+        symbolLayers: [
+          new LineSymbol3DLayer({
+            material: { color: [51, 200, 200, 0.3] },
+            size: 0.1
+          })
+        ]
+      });
+
+      
+    var rendererMigrations = new SimpleRenderer({
+          
+          symbol: interstateSymbolMigrations
+        
+      });
+
     /// DEFINICIÓN DEL LOS RUTA MIGRATORIA
     const layermigrations = new GeoJSONLayer({
         url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/migrations.geojson",
         copyright: "INIA",
         title: "Todas las rutas",
-        timeInfo: {
-            interval: {
-                unit: "days",
-                value: 7
-            }
-        },
-        renderer: {
-            type: "line-3d",
-            field: "serotipo",
-            symbol: {
-                type: "simple-marker",
-                color: [255, 0, 0, 0.5],
-                outline: null
-            },
-        },
+        outFields: ["*"],
+        renderer: rendererMigrations,
         popupTemplate: {
             title: "Especie: {species}",
             /* content: [

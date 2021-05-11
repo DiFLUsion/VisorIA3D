@@ -153,7 +153,7 @@ require([
 
         }
 
-        view.on("double-click", function (e) {
+        view.on("hold", function (e) {
             view.graphics.removeAll(polylineGraphic);
             console.log("Remove")
 
@@ -351,7 +351,7 @@ require([
 
         }
 
-        view.on("double-click", function (alert) {
+        view.on("hold", function (alert) {
             view.graphics.removeAll(polylineGraphic);
             console.log("Remove")
 
@@ -571,7 +571,7 @@ require([
             }
         }
 
-        view.on("double-click", function (e) {
+        view.on("hold", function (e) {
             view.graphics.removeAll(polylineGraphic);
             console.log("Remove")
         })

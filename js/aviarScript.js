@@ -371,7 +371,7 @@ require([
         copyright: "INIA",
         title: "Rutas activadas por riesgo",
 
-        /* renderer: {
+        renderer: {
             type: "line-3d",
             symbol: {
                 type: "line",
@@ -381,16 +381,16 @@ require([
                     width: 0.05
                 }
             }
-        }, */
+        },
 
-        renderer: {
+       /*  renderer: {
             type: "line-3d",
             outline: {
                 type: "simple-line", // Not needed, as type `simple-line` is implied
                 
                 color: [ 255, 128, 45 ]
               }
-        },
+        }, */
 
 
         /* renderer: {

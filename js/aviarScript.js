@@ -15,7 +15,9 @@ require([
     "esri/widgets/ScaleBar",
     "esri/widgets/Popup",
     "esri/views/SceneView",
-    "esri/symbols/LineSymbol3D"
+    "esri/symbols/LineSymbol3D",
+    "esri/renderers/SimpleRenderer",
+    "esri/symbols/SimpleMarkerSymbol"
 
 ], function (
     Map,
@@ -34,7 +36,10 @@ require([
     ScaleBar,
     Popup,
     SceneView,
-    LineSymbol3D) {
+    LineSymbol3D,
+    SimpleRenderer,
+    SimpleMarkerSymbol
+    ) {
 
     let layerViewBrotes;
 
@@ -148,7 +153,7 @@ require([
 
         }
 
-        view.on("click", function (e) {
+        view.on("double-click", function (e) {
             view.graphics.removeAll(polylineGraphic);
             console.log("Remove")
 
@@ -303,7 +308,7 @@ require([
     })
 
     function getInfoAlertas(feature) {
-        view.graphics.removeAll()
+       /*  view.graphics.removeAll() */
 
         var graphic, attributes, content;
 
@@ -346,7 +351,7 @@ require([
 
         }
 
-        view.on("click", function (alert) {
+        view.on("double-click", function (alert) {
             view.graphics.removeAll(polylineGraphic);
             console.log("Remove")
 
@@ -365,16 +370,43 @@ require([
         url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutas.geojson",
         copyright: "INIA",
         title: "Rutas activadas por riesgo",
+
+        /* renderer: {
+            type: "line-3d",
+            symbol: {
+                type: "line",
+                supportsQuery: true,
+                outline: {
+                    color: [255, 51, 51],
+                    width: 0.05
+                }
+            }
+        }, */
+
         renderer: {
+            type: "line-3d",
+            outline: {
+                type: "simple-line", // Not needed, as type `simple-line` is implied
+                
+                color: [ 255, 128, 45 ]
+              }
+        },
+
+
+        /* renderer: {
             type: "line-3d",
             symbolLayers: {
                 type: "line",  // autocasts as new PathSymbol3DLayer()
                 profile: "circle",
                 width: 10,    // width of the tube in meters
-                color: [128, 128, 128] 
+                material: {color: [128, 128, 128] },
+                outline: {
+                    color: "black",
+                    size: 0.5
+                  }
             }
 
-        },
+        }, */
 
         popupTemplate: {
             title: "Id Alerta de la ruta: {idAlerta}",
@@ -503,7 +535,7 @@ require([
     /// ESTA FUNCIÓN PROGRAMA EL POPUPTEMPLATE
     function getInfoComarcas(feature) {
 
-        view.graphics.removeAll()
+        /* view.graphics.removeAll() */
 
         var graphic, attributes;
 
@@ -539,7 +571,7 @@ require([
             }
         }
 
-        view.on("click", function (e) {
+        view.on("double-click", function (e) {
             view.graphics.removeAll(polylineGraphic);
             console.log("Remove")
         })

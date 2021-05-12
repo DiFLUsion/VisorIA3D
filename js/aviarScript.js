@@ -366,17 +366,7 @@ require([
 
     }
 
-    /* let symbol = {
-        type: "line-3d",  // autocasts as new LineSymbol3D()
-        symbolLayers: [{
-          type: "path",  // autocasts as new PathSymbol3DLayer()
-          profile: "circle",
-          width: 10,    // width of the tube in meters
-          material: { color: [ 128,128,128 ] }
-        }]
-      } */
-
-      var interstateSymbolRutas = new LineSymbol3D({
+      var lineSymbolRutas = new LineSymbol3D({
         symbolLayers: [
           new LineSymbol3DLayer({
             material: { color: [255, 51, 51, 0.8] },
@@ -388,7 +378,7 @@ require([
       
     var rendererRutas = new SimpleRenderer({
           
-          symbol: interstateSymbolRutas
+          symbol: lineSymbolRutas
         
       });
 
@@ -424,7 +414,7 @@ require([
 
     }
 
-    var interstateSymbolMigrations = new LineSymbol3D({
+    var lineSymbolMigrations = new LineSymbol3D({
         symbolLayers: [
           new LineSymbol3DLayer({
             material: { color: [51, 200, 200, 0.3] },
@@ -436,7 +426,7 @@ require([
       
     var rendererMigrations = new SimpleRenderer({
           
-          symbol: interstateSymbolMigrations
+          symbol: lineSymbolMigrations
         
       });
 
@@ -622,14 +612,6 @@ require([
     });
     view.ui.add(legendExpand, "top-left");
 
-    /// WIDGET DE HOME PARA LA VISTA INICIAL
-    var homeBtn = new Home({
-        view: view,
-
-    });
-
-    // Add the home button to the top left corner of the view
-    view.ui.add(homeBtn, "top-left");
 
     //// SCALEBAR
 
@@ -659,6 +641,8 @@ require([
         view: view,
         container: document.createElement("div")
     });
+
+
 
 
     ///TIMESLIDER DE BROTES
@@ -819,7 +803,7 @@ require([
         content: infoDiv,
         expanded: false
     });
-    view.ui.add(infoDivExpand, "top-right");
+    view.ui.add(infoDivExpand, "top-left");
 
     ///TIMESLIDER DE ALERTAS
     // crea un nuevo widget de control deslizante de tiempo
@@ -884,6 +868,8 @@ require([
 
     });
 
+    /// BASEMAP GALLERY
+    
     // Create an Expand instance and set the content
     // property to the DOM node of the basemap gallery widget
     // Use an Esri icon font to represent the content inside
@@ -911,6 +897,15 @@ require([
 
     view.ui.add(bgExpand, "top-right");
 
+        /// WIDGET DE HOME PARA LA VISTA INICIAL
+        var homeBtn = new Home({
+            view: view,
+    
+        });
+    
+        // Add the home button to the top left corner of the view
+        view.ui.add(homeBtn, "top-right");
+
 
     /// Info App Web
 
@@ -922,7 +917,7 @@ require([
         content: info,
         expanded: false
     });
-    view.ui.add(infoExpand, "top-right" /* "top-left" */);
+    view.ui.add(infoExpand, "top-left" /* "top-left" */);
 
     //// ZOOM TO BROTES
 

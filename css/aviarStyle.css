@@ -74,7 +74,8 @@ html,
 
         #myButtonBrotes {
             font-size: medium;
-            color: #d8c8c8;
+            font-weight: bold;
+            color: #ff0000;
             border: 1px solid #242424;
             margin-top: -117px;
             display: flex;
@@ -90,7 +91,8 @@ html,
 
         #myButtonAlerta {
             font-size: medium;
-            color: #d8c8c8;
+            font-weight: bold;
+            color: #ff0000;
             border: 1px solid #242424;
             margin-top: -100px;
             display: flex;
@@ -388,4 +390,13 @@ html,
             z-index: 1;
             font-size: 14px;
             opacity: 0.1;
+        }
+
+        .esri-widget--button:hover {
+            background-color: #303030;
+            color: red;
+        }
+
+        .esri-navigation-toggle:hover .esri-navigation-toggle__button, .esri-navigation-toggle:focus .esri-navigation-toggle__button {
+            color: red;
         }

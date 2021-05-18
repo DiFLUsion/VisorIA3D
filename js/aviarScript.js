@@ -369,7 +369,7 @@ require([
       var lineSymbolRutas = new LineSymbol3D({
         symbolLayers: [
           new LineSymbol3DLayer({
-            material: { color: [255, 51, 51, 0.8] },
+            material: { color: [237, 237, 237] },
             size: 1
           })
         ]

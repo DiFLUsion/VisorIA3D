@@ -369,7 +369,7 @@ require([
       var lineSymbolRutas = new LineSymbol3D({
         symbolLayers: [
           new LineSymbol3DLayer({
-            material: { color: [237, 237, 237] },
+            material: { color: [255, 51, 51, 0.8] },
             size: 1
           })
         ]
@@ -417,7 +417,7 @@ require([
     var lineSymbolMigrations = new LineSymbol3D({
         symbolLayers: [
           new LineSymbol3DLayer({
-            material: { color: [51, 200, 200, 0.3] },
+            material: { color: [237, 237, 237, 0.3] },
             size: 0.1
           })
         ]
@@ -546,7 +546,7 @@ require([
                 var lineSymbol = {
                     type: "simple-line", // new SimpleLineSymbol()
                     color: [51, 200, 200/* , 0.9 */], // RGB color values as an array
-                    width: 0.5
+                    width: 1
                 };
                 var polylineGraphic = new Graphic({
                     geometry: polyline, // Add the geometry created in step 4

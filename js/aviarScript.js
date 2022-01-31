@@ -432,7 +432,7 @@ require([
 
     /// DEFINICIÓN DEL LOS RUTA MIGRATORIA
     const layermigrations = new GeoJSONLayer({
-        url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/migrations.geojson",
+        url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasBroteColletorSC2.geojson",
         copyright: "INIA",
         title: "Todas las rutas",
         outFields: ["*"],
@@ -488,7 +488,7 @@ require([
 
     const layerComarcas = new GeoJSONLayer({
         url:
-            "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/comarcas.geojson",
+            "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/nuts_Aviar.geojson",
         copyright: "INIA",
         title: "Comarcas",
         outFields: ['*'],
@@ -507,8 +507,8 @@ require([
         supportsQuery: true,
         popupTemplate: {
             title: "Comarca: {comarca}," +
-                "<br>Provincia: {provincia}" +
-                "<br>Comunidad Autónoma: {comAutonoma}</br>",
+                "<br>Provincia: {ADMIN_NAME}" +
+                "<br>Comunidad Autónoma: {CNTRY_NAME}</br>",
             content: getInfoComarcas,
             visible: false,
             returnGeometry: true,
@@ -527,7 +527,7 @@ require([
         graphic = feature.graphic;
         attributes = graphic.attributes;
 
-        var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/migrations.geojson';
+        var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasBroteColletorSC2.geojson';
         // Se inicia la peticion ajax a la url ruta
         var request = new XMLHttpRequest();
         request.open("GET", urlRutas, false); // false for synchronous request

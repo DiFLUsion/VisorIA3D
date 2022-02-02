@@ -432,7 +432,7 @@ require([
 
     /// DEFINICIÓN DEL LOS RUTA MIGRATORIA
     const layermigrations = new GeoJSONLayer({
-        url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasBroteColletorSC2.geojson",
+        url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/USA_Simplify.geojson",
         copyright: "INIA",
         title: "Todas las rutas",
         outFields: ["*"],
@@ -506,9 +506,9 @@ require([
         },
         supportsQuery: true,
         popupTemplate: {
-            title: "Comarca: {comarca}," +
-                "<br>Provincia: {ADMIN_NAME}" +
-                "<br>Comunidad Autónoma: {CNTRY_NAME}</br>",
+            title: "Admin: {ADMIN_NAME}," +
+                "<br>Contry: {CNTRY_NAME}" +
+                "<br>Group: {Group_spec_1}</br>",
             content: getInfoComarcas,
             visible: false,
             returnGeometry: true,
@@ -527,7 +527,7 @@ require([
         graphic = feature.graphic;
         attributes = graphic.attributes;
 
-        var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasBroteColletorSC2.geojson';
+        var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/USA_Simplify.geojson';
         // Se inicia la peticion ajax a la url ruta
         var request = new XMLHttpRequest();
         request.open("GET", urlRutas, false); // false for synchronous request
@@ -538,7 +538,7 @@ require([
         for (let index = 0; index < rutas.features.length; index++) {
             const element = rutas.features[index];
             console.log('element', element)
-            if (element.properties.idComarca == attributes.comarca_sg) {
+            if (element.properties.FIPS_ADMIN == attributes.FIPS_ADMIN) {
                 var polyline = {
                     type: "polyline", // new Polyline()
                     paths: element.geometry.coordinates

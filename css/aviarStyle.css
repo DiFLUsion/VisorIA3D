@@ -19,8 +19,7 @@ html,
             position: absolute;
             left: 55px;
             right: 10px;
-            bottom: 125px;
-            margin-bottom: 20px;
+            bottom: 50px;
         }
 
         #timeSliderAlertas {
@@ -28,7 +27,8 @@ html,
             position: absolute;
             left: 55px;
             right: 10px;
-            bottom: 50px;
+            bottom: 125px;
+            margin-bottom: 20px;
         }
 
         .esri-slider__thumb {
@@ -77,7 +77,7 @@ html,
             font-weight: bold;
             color: #ff0000;
             border: 1px solid #242424;
-            margin-top: -117px;
+            margin-top: -100px;
             display: flex;
             overflow: visible;
             position: absolute;

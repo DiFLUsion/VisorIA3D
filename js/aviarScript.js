@@ -580,11 +580,11 @@ require([
 
         camera: {
             position: {
-                latitude: 10.00000,
+                latitude: 22.00000,
                 longitude: -100.00000,
-                z: 7034560
+                z: 10000000
             },
-            tilt:16.5,
+            tilt: 10.5,
             heading: 1
         },
 

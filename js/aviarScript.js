@@ -491,7 +491,7 @@ require([
         url:
             "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb3D/main/GeoJSON/nutsAviarUSA.geojson",
         copyright: "INIA",
-        title: "Comarcas",
+        title: "Nuts",
         outFields: ['*'],
         visible: true,
         renderer: {

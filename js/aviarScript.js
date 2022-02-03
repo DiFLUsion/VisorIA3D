@@ -811,7 +811,7 @@ require([
     //establecer otras propiedades cuando se carga la vista de capa
     // por defecto timeSlider.mode es "time-window" - muestra
     // los datos caen dentro del rango de tiempo
-    view.when(function () {
+   /*  view.when(function () {
         let timeSliderAlertas = new TimeSlider({
             container: "timeSliderAlertas",
             view: layerAlertas,
@@ -862,12 +862,12 @@ require([
                     timeExtent: timeSliderAlertas.timeExtent,
                     geometry: view.extent
                 },
-                /* excludedEffect: "grayscale(20%) opacity(2%)" */
+                
             };
 
         });
 
-    });
+    }); */
 
     /// BASEMAP GALLERY
     

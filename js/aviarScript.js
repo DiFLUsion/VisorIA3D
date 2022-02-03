@@ -434,7 +434,7 @@ require([
     const layermigrations = new GeoJSONLayer({
         url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb3D/main/GeoJSON/rutasUsa.geojson",
         copyright: "INIA",
-        title: "Todas las rutas",
+        title: "Movements",
         outFields: ["*"],
         renderer: rendererMigrations,
         popupTemplate: {

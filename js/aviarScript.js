@@ -438,7 +438,8 @@ require([
         outFields: ["*"],
         renderer: rendererMigrations,
         popupTemplate: {
-            title: "Especie: {species}",
+            title: "Group: {Group_spec}"+
+            "<br>Total: {Total}",
             /* content: [
                 {
                     type: "fields",
@@ -497,9 +498,9 @@ require([
             type: "simple",
             symbol: {
                 type: "simple-fill",
-                color: [92, 92, 92, 0.01],
+                color: [178, 220, 247, 0.03],
                 outline: {
-                    color: [155, 155, 155, 0.3],
+                    color: [250, 5, 51],
                     width: 1.25
                 }
             }
@@ -507,8 +508,8 @@ require([
         supportsQuery: true,
         popupTemplate: {
             title: "Admin: {ADMIN_NAME}," +
-                "<br>Contry: {CNTRY_NAME}" +
-                "<br>Group: {Group_spec_1}</br>",
+                "<br>Country: {CNTRY_NAME}"/*  +
+                "<br>Group: {Group_spec_1}</br>" */,
             content: getInfoComarcas,
             visible: false,
             returnGeometry: true,
@@ -568,7 +569,7 @@ require([
     const map = new Map({
         basemap: "dark-gray-vector",
         /* ground: "world-elevation", */
-        layers: [layerComarcas, layerBrotes, layerAlertas, layerRutaM, layermigrations]
+        layers: [layerComarcas/* , layerBrotes, layerAlertas, layerRutaM */, layermigrations]
     });
 
     const view = new SceneView({
@@ -580,7 +581,7 @@ require([
         camera: {
             position: {
                 latitude: 10.00000,
-                longitude: 25.00000,
+                longitude: -100.00000,
                 z: 7034560
             },
             tilt:16.5,

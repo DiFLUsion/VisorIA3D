@@ -432,7 +432,7 @@ require([
 
     /// DEFINICIÓN DEL LOS RUTA MIGRATORIA
     const layermigrations = new GeoJSONLayer({
-        url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/USA_Simplify.geojson",
+        url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb3D/main/GeoJSON/rutasUsa.geojson",
         copyright: "INIA",
         title: "Todas las rutas",
         outFields: ["*"],
@@ -488,7 +488,7 @@ require([
 
     const layerComarcas = new GeoJSONLayer({
         url:
-            "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/nuts_Aviar.geojson",
+            "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb3D/main/GeoJSON/nutsAviarUSA.geojson",
         copyright: "INIA",
         title: "Comarcas",
         outFields: ['*'],
@@ -527,7 +527,7 @@ require([
         graphic = feature.graphic;
         attributes = graphic.attributes;
 
-        var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/USA_Simplify.geojson';
+        var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb3D/main/GeoJSON/rutasUsa.geojson';
         // Se inicia la peticion ajax a la url ruta
         var request = new XMLHttpRequest();
         request.open("GET", urlRutas, false); // false for synchronous request

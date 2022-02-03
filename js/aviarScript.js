@@ -567,7 +567,7 @@ require([
     /// INICIALIZACIÓN DEL MAPA
 
     const map = new Map({
-        basemap: "dark-gray-vector",
+        basemap: "hybrid",
         /* ground: "world-elevation", */
         layers: [layerComarcas/* , layerBrotes, layerAlertas, layerRutaM */, layermigrations]
     });

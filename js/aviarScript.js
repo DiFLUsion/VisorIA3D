@@ -569,7 +569,7 @@ require([
     const map = new Map({
         basemap: "hybrid",
         /* ground: "world-elevation", */
-        layers: [layerComarcas/* , layerBrotes, layerAlertas, layerRutaM */, layermigrations]
+        layers: [layerComarcas , layerBrotes/*, layerAlertas, layerRutaM */, layermigrations]
     });
 
     const view = new SceneView({

@@ -50,7 +50,7 @@ require([
 
     const layerBrotes = new GeoJSONLayer({
         url:
-            "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/brotes.geojson",
+            "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb3D/main/GeoJSON/brotes.geojson",
 
         copyright: "Influenza Aviar",
         title: "Brotes",

@@ -500,8 +500,8 @@ require([
                 type: "simple-fill",
                 color: [178, 220, 247, 0.03],
                 outline: {
-                    color: [250, 5, 51],
-                    width: 1.25
+                    color: [139, 238, 247],
+                    width: 0.5
                 }
             }
         },
@@ -794,7 +794,7 @@ require([
 
     /// BOTON EXPANDIBLE DE INFO BROTES
 
-    const statsDiv = document.getElementById("statsDiv");
+    /* const statsDiv = document.getElementById("statsDiv");
     const infoDiv = document.getElementById("infoDiv");
     const infoDivExpand = new Expand({
         collapsedIconClass: "esri-icon-documentation",
@@ -804,7 +804,7 @@ require([
         content: infoDiv,
         expanded: false
     });
-    view.ui.add(infoDivExpand, "top-left");
+    view.ui.add(infoDivExpand, "top-left"); */
 
     ///TIMESLIDER DE ALERTAS
     // crea un nuevo widget de control deslizante de tiempo

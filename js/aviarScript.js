@@ -180,7 +180,7 @@ require([
         url:
             "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/alertas.geojson",
 
-        copyright: "INIA",
+        copyright: "CERBU | INIA-CSIC",
         title: "Alertas",
         outFields: ['*'],
         visible: true,
@@ -385,7 +385,7 @@ require([
     /// DEFINICIÓN DEL LOS RUTA MIGRATORIA
     const layerRutaM = new GeoJSONLayer({
         url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutas.geojson",
-        copyright: "INIA",
+        copyright: "CERBU | INIA-CSIC",
         title: "Rutas activadas por riesgo",
         outFields: ["*"],
         renderer: rendererRutas,
@@ -433,7 +433,7 @@ require([
     /// DEFINICIÓN DEL LOS RUTA MIGRATORIA
     const layermigrations = new GeoJSONLayer({
         url: "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb3D/main/GeoJSON/rutasUsa.geojson",
-        copyright: "INIA",
+        copyright: "CERBU | INIA-CSIC",
         title: "Movements",
         outFields: ["*"],
         renderer: rendererMigrations,
@@ -490,7 +490,7 @@ require([
     const layerComarcas = new GeoJSONLayer({
         url:
             "https://raw.githubusercontent.com/influenzaAviar/applicacionWeb3D/main/GeoJSON/nutsAviarUSA.geojson",
-        copyright: "INIA",
+        copyright: "CERBU | INIA-CSIC",
         title: "Nuts",
         outFields: ['*'],
         visible: true,
@@ -500,8 +500,8 @@ require([
                 type: "simple-fill",
                 color: [178, 220, 247, 0.03],
                 outline: {
-                    color: [139, 238, 247],
-                    width: 0.5
+                    color: [4, 178, 194],
+                    width: 1
                 }
             }
         },

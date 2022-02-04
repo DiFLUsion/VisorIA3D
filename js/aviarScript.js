@@ -114,7 +114,7 @@ require([
     function getInfoBrotes(feature) {
         /*  view.graphics.removeAll() */
 
-        var graphic, attributes, content;
+        /* var graphic, attributes, content;
 
         graphic = feature.graphic;
         attributes = graphic.attributes;
@@ -159,14 +159,14 @@ require([
             view.graphics.removeAll(polylineGraphic);
             console.log("Remove")
 
-        });
+        }); */
 
         content = "<p>Número de casos: <b>{cases}</b> " +
             "<ul><li>Localización: {city}, {country}.</li>" +
             "<li>Fecha del informe: {observationDate}.</li>" +
             "<li>Especie: {species}.</li>" +
-            "<li>Serotipo: {serotipo}.</li>" +
-            "<li>Más información: <a href='http://empres-i.fao.org/empres-i/2/obd?idOutbreak={id}'> Enlace</a></li>";
+            "<li>Serotipo: {serotipe}.</li>" +
+            "<li>Más información: <a href='http://empres-i.fao.org/eipws3g/2/obd?idOutbreak={event_id}'> Enlace</a></li>";
 
         return content;
 

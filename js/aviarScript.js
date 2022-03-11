@@ -110,7 +110,7 @@ require([
   });
 
   const featureLayerRutas = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/Hosted/movementsApp/FeatureServer",
+    url: "https://gis.inia.es/server/rest/services/Hosted/rutasUsaFinal/FeatureServer",
     copyright: "CERBU | INIA-CSIC",
     title: "Movements",
     outFields: ["*"],

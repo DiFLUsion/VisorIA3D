@@ -117,7 +117,7 @@ require([
     renderer: rendererMigrations,
     popupTemplate: {
       title: "Group: {Group_spec}" +
-        "<br>Total: {Total}",
+        "<br>Total number of banding records: {Total}",
       /* content: [
           {
               type: "fields",

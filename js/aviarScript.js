@@ -381,12 +381,12 @@ require([
     // hora de inicio del control deslizante de tiempo
     const startBrotes = new Date();
     startBrotes.setHours(0, 0, 0, 0);
-    startBrotes.setDate(startBrotes.getDate() + (7 - startBrotes.getDay() - 6));
+    startBrotes.setDate(startBrotes.getDate());
     startBrotes.setDate(startBrotes.getDate() - 455);
 
     const LastMonday = new Date();
     LastMonday.setHours(0, 0, 0, 0);
-    LastMonday.setDate(LastMonday.getDate() + (7 - LastMonday.getDay() - 6));
+    LastMonday.setDate(LastMonday.getDate());
 
     // set time slider's full extent to
     // until end date of layer's fullTimeExtent

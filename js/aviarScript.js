@@ -233,6 +233,14 @@ require([
         var polylineGraphic = new Graphic({
           geometry: polyline, // Add the geometry created in step 4
           symbol: lineSymbol, // Add the symbol created in step 5
+          popupTemplate: {
+            title: "Group_spec: " + element.properties.Group_spec +
+              "<br>Total: " + element.properties.Total/*  +
+                  "<br>Group: {Group_spec_1}</br>" */,
+            content: getInfoComarcas,
+            visible: false,
+            returnGeometry: true,
+          },
         });
         view.graphics.add(polylineGraphic);
       }

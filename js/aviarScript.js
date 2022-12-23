@@ -265,14 +265,14 @@ require([
     container: "viewDiv",
     map: map,
     camera: {
-      position: {
-        latitude: 20.00000,
-        longitude: -105.00000,
-        z: 10000000
-      },
-      tilt: 11.5,
-      heading: 1
-    },
+            position: {
+                latitude: 7.00000,
+                longitude: 22.00000,
+                z: 7034560
+            },
+            tilt: 16.5,
+            heading: 1
+        },
 
 
     highlightOptions: {

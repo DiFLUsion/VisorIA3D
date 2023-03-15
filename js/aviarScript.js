@@ -110,14 +110,13 @@ require([
   });
 
   const featureLayerRutas = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/Hosted/rutasUsaFinal/FeatureServer",
+    url: "https://gis.inia.es/server/rest/services/Hosted/migrations/FeatureServer/0",
     copyright: "CERBU | INIA-CSIC",
     title: "Movements",
     outFields: ["*"],
     renderer: rendererMigrations,
     popupTemplate: {
-      title: "Group: {Group_spec}" +
-        "<br>Total number of banding records: {Total}",
+      title: "Group: {species}",
       /* content: [
           {
               type: "fields",

@@ -58,7 +58,7 @@ require([
   };
   // Request feature layers and overwrite renderer 
   const featureLayerBrotes = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/Hosted/histAviar/FeatureServer",
+    url: "https://gis.inia.es/server/rest/services/CISA/brotes_FAO_XY/MapServer/0",
     copyright: "Influenza Aviar",
     title: "Brotes",
     outFields: ['*'],
@@ -149,8 +149,8 @@ require([
       type: "simple-fill",
       color: [178, 220, 247, 0.03],
       outline: {
-        color: [4, 178, 194],
-        width: 1
+        color: [250, 250, 250],
+        width: 1.25
       }
     }
   };
@@ -176,7 +176,7 @@ require([
   /// DEFINICIÓN DE LOS NUTS
 
   const featureLayerNuts = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/Hosted/nuts_Simplify/FeatureServer",
+    url: "https://gis.inia.es/server/rest/services/Hosted/provinciasEspa%C3%B1a/FeatureServer/31",
     copyright: "CERBU | INIA-CSIC",
     title: "Nuts",
     outFields: ['*'],
@@ -208,7 +208,7 @@ require([
     /* console.log("Atributes:" + attributes) */
 
 
-    var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb3D/main/GeoJSON/rutasUsa.geojson';
+    var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasVisorInfluenza.geojson';
     // Se inicia la peticion ajax a la url ruta
     
     var request = new XMLHttpRequest();
@@ -220,21 +220,21 @@ require([
     for (let index = 0; index < rutas.features.length; index++) {
       const element = rutas.features[index];
       console.log('element', element)
-      if (element.properties.FIPS_ADMIN_Recov == attributes.fips_admin || element.properties.FIPS_ADMIN_banding == attributes.fips_admin ) {
+      if (element.properties.ProvinciaDeDestino == attributes.rotulo) {
         var polyline = {
           type: "polyline", // new Polyline()
           paths: element.geometry.coordinates
         };
         var lineSymbol = {
           type: "simple-line", // new SimpleLineSymbol()
-          color: [51, 200, 200/* , 0.9 */], // RGB color values as an array
-          width: 1
+          color: [251, 250, 250, 0.8], // RGB color values as an array
+          width: element.properties.Total/15
         };
         var polylineGraphic = new Graphic({
           geometry: polyline, // Add the geometry created in step 4
           symbol: lineSymbol, // Add the symbol created in step 5
           popupTemplate: {
-            title: "Group_spec: " + element.properties.Group_spec +
+            title: "Group_spec: " + element.properties.Grupo +
               "<br>Total: " + element.properties.Total/*  +
                   "<br>Group: {Group_spec_1}</br>" */,
             content: getInfoComarcas,
@@ -256,7 +256,7 @@ require([
 
   // Create the Map
   const map = new Map({
-    basemap: "hybrid",
+    basemap: "dark-gray-vector",
     layers: [featureLayerBrotes, featureLayerNuts, featureLayerRutas]
   });
 

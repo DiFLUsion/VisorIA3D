@@ -175,7 +175,7 @@ require([
   /// DEFINICIÓN DE LOS NUTS
 
   const featureLayerNuts = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/Hosted/provinciasEspa%C3%B1a/FeatureServer/31",
+    url: "https://gis.inia.es/server/rest/services/Hosted/NutsEuropeEspa%C3%B1a/FeatureServer/37",
     copyright: "CERBU | INIA-CSIC",
     title: "Nuts",
     outFields: ['*'],
@@ -219,7 +219,7 @@ require([
     for (let index = 0; index < rutas.features.length; index++) {
       const element = rutas.features[index];
       console.log('element', element)
-      if (element.properties.ProvinciaDeDestino == attributes.rotulo) {
+      if (element.properties.ProvinciaDeDestino == attributes.rotulo || element.properties.PaisDeOrigen == attributes.country ) {
         var polyline = {
           type: "polyline", // new Polyline()
           paths: element.geometry.coordinates

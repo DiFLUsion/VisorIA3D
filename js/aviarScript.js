@@ -183,8 +183,8 @@ require([
     renderer: rendererNuts,
     supportsQuery: true,
     popupTemplate: {
-      title: "Admin: {ADMIN_NAME}," +
-        "<br>Country: {CNTRY_NAME}"/*  +
+       title: "Admin: {rotulo}," +
+        "<br>Country: {countryaff}"/*  +
             "<br>Group: {Group_spec_1}</br>" */,
       content: getInfoComarcas,
       visible: false,

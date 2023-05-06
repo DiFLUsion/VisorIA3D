@@ -183,7 +183,7 @@ require([
     renderer: rendererNuts,
     supportsQuery: true,
     popupTemplate: {
-       title: "Admin: {rotulo}," +
+       title: "Admin: {NAME}," +
         "<br>Country: {countryaff}"/*  +
             "<br>Group: {Group_spec_1}</br>" */,
       content: getInfoComarcas,
@@ -204,10 +204,13 @@ require([
 
     graphic = feature.graphic;
     attributes = graphic.attributes;
-    /* console.log("Atributes:" + attributes) */
+    /* console.log("Atributes:" + attributes) 
+    Region de origen --> ISO_CODE
+    https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasVisorInfluenza.geojson
+    https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutas_visorIA.geojson*/
 
 
-    var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasVisorInfluenza.geojson';
+    var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasVisorAI.geojson';
     // Se inicia la peticion ajax a la url ruta
     
     var request = new XMLHttpRequest();
@@ -219,7 +222,7 @@ require([
     for (let index = 0; index < rutas.features.length; index++) {
       const element = rutas.features[index];
       console.log('element', element)
-      if (element.properties.ProvinciaDeDestino == attributes.rotulo || element.properties.PaisDeOrigen == attributes.country ) {
+      if (element.properties.Provincia_de_destino == attributes.rotulo || element.properties.Region_de_origen == attributes.ISO_CODE ) {
         var polyline = {
           type: "polyline", // new Polyline()
           paths: element.geometry.coordinates

@@ -222,7 +222,7 @@ require([
     for (let index = 0; index < rutas.features.length; index++) {
       const element = rutas.features[index];
       console.log('element', element)
-      if (element.properties.Provincia_de_destino == attributes.rotulo || element.properties.Region_de_origen == attributes.ISO_CODE ) {
+      if (element.properties.Provincia_de_destino == attributes.rotulo || element.properties.Region_de_origen == attributes.iso_code ) {
         var polyline = {
           type: "polyline", // new Polyline()
           paths: element.geometry.coordinates

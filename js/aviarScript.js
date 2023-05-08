@@ -229,7 +229,7 @@ require([
         };
         var lineSymbol = {
           type: "simple-line", // new SimpleLineSymbol()
-          color: [251, 250, 250, 0.8], // RGB color values as an array
+          color: [51, 200, 200, 0.8], // RGB color values as an array
           width: element.properties.Total/15
         };
         var polylineGraphic = new Graphic({

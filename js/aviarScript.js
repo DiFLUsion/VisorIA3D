@@ -175,7 +175,7 @@ require([
   /// DEFINICIÓN DE LOS NUTS
 
   const featureLayerNuts = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/Hosted/NutsEuropeEspa%C3%B1a/FeatureServer/37",
+    url: "https://gis.inia.es/server/rest/services/Hosted/NutsEuropeEspa%C3%B1a/FeatureServer/0",
     copyright: "CERBU | INIA-CSIC",
     title: "Nuts",
     outFields: ['*'],

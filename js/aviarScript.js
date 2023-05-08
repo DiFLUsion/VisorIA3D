@@ -111,7 +111,7 @@ require([
 
   const featureLayerRutas = new FeatureLayer({
     url: "https://gis.inia.es/server/rest/services/Hosted/migrations/FeatureServer/0",
-    copyright: "CERBU | INIA-CSIC",
+    copyright: "Carlos Eduardo Blano Urbina| INIA-CSIC",
     title: "Movements",
     outFields: ["*"],
     renderer: rendererMigrations,
@@ -176,7 +176,7 @@ require([
 
   const featureLayerNuts = new FeatureLayer({
     url: "https://gis.inia.es/server/rest/services/Hosted/NutsEuropeEspa%C3%B1a/FeatureServer/0",
-    copyright: "CERBU | INIA-CSIC",
+    copyright: "Carlos Eduardo Blano Urbina | INIA-CSIC",
     title: "Nuts",
     outFields: ['*'],
     visible: true,

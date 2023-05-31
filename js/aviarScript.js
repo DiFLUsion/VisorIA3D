@@ -110,7 +110,7 @@ require([
   });
 
   const featureLayerRutas = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/Hosted/migrations/FeatureServer/0",
+    url: "hhttps://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/migrations/FeatureServer/0",
     copyright: "Carlos Eduardo Blano Urbina| INIA-CSIC",
     title: "Movements",
     outFields: ["*"],
@@ -175,7 +175,7 @@ require([
   /// DEFINICIÓN DE LOS NUTS
 
   const featureLayerNuts = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/Hosted/NutsEuropeEspa%C3%B1a/FeatureServer/0",
+    url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/NutsEuropeEspa%c3%b1a/FeatureServer/0",
     copyright: "Carlos Eduardo Blano Urbina | INIA-CSIC",
     title: "Nuts",
     outFields: ['*'],

@@ -56,9 +56,10 @@ require([
     type: "simple", // autocasts as new SimpleRenderer()
     symbol: iconSymbol
   };
-  // Request feature layers and overwrite renderer 
+  // Request feature layers and overwrite renderer https://gis.inia.es/server/rest/services/CISA/alertas_DFS_sqlserver_buena/MapServer/0
+    // url: "https://gis.inia.es/server/rest/services/CISA/brotes_FAO_XY/MapServer/0"
   const featureLayerBrotes = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/CISA/brotes_FAO_XY/MapServer/0",
+    url: "https://gis.inia.es/server/rest/services/CISA/alertas_DFS_sqlserver_buena/MapServer/0",
     copyright: "Influenza Aviar",
     title: "Brotes",
     outFields: ['*'],

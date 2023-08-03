@@ -111,7 +111,7 @@ require([
   });
 
   const featureLayerRutas = new FeatureLayer({
-    url: "hhttps://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/migrations/FeatureServer/0",
+    url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/migrations/FeatureServer/0",
     copyright: "Carlos Eduardo Blano Urbina| INIA-CSIC",
     title: "Movements",
     outFields: ["*"],

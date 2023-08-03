@@ -198,22 +198,22 @@ require([
 
   /// ESTA FUNCIÓN PROGRAMA EL POPUPTEMPLATE
   function getInfoComarcas(feature) {
-  
+
     /* view.graphics.removeAll() */
 
     var graphic, attributes;
 
     graphic = feature.graphic;
     attributes = graphic.attributes;
-    /* console.log("Atributes:" + attributes) 
+    /* console.log("Atributes:" + attributes)
     Region de origen --> ISO_CODE
     https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasVisorInfluenza.geojson
     https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutas_visorIA.geojson*/
 
 
-    var urlRutas = 'https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasVisorAI.geojson';
+    var urlRutas = 'https://raw.githubusercontent.com/DiFLUsion/VisorIA3D/main/GeoJSON/rutasVisorAI.geojson';
     // Se inicia la peticion ajax a la url ruta
-    
+
     var request = new XMLHttpRequest();
     request.open("GET", urlRutas, false); // false for synchronous request
     request.send(null);
@@ -254,7 +254,7 @@ require([
       console.log("Remove")
     })
 
-    
+
   }
 
   // Create the Map
@@ -373,7 +373,7 @@ require([
 
   const timeSliderBrotes = new TimeSlider({
     container: "timeSliderBrotes",
-    // la propiedad "playRate" del widgetb es el tiempo (en milisegundos) entre los pasos de la animación. Este valor predeterminado es 1000. 
+    // la propiedad "playRate" del widgetb es el tiempo (en milisegundos) entre los pasos de la animación. Este valor predeterminado es 1000.
     playRate: 100,
     view: featureLayerBrotes,
     stops: {

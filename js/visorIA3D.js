@@ -111,9 +111,7 @@ require([
   });
 
 
-  const elevationOptions = {
-  sourceType: "on-the-ground",
-  };
+
 
   
 
@@ -150,7 +148,12 @@ require([
 
   });
       
-  featureLayerRutas.setElevation(elevationOptions);
+// Define elevationInfo and set it on the layer
+  const currentElevationInfo = {
+    mode: "on-the-ground"}
+
+
+  featureLayerRutas.elevationInfo = currentElevationInfo;
 
 
   const rendererNuts = {

@@ -83,7 +83,7 @@ require([
 
 
   function getInfoBrotes(feature) {
-    content = "<p>Número de casos: <b>{cases}</b> " +
+    content = "<p>Outbreak information: " +
       "<ul><li>Location: {location}.</li>" +
       "<li>Report date: {report_date}.</li>" +
       "<li>Species: {species}.</li>" +
@@ -124,7 +124,7 @@ require([
     outFields: ["*"],
     renderer: rendererMigrations,
     popupTemplate: {
-      title: "Group: {species}",
+      title: "Group: {Grupo}",
       /* content: [
           {
               type: "fields",

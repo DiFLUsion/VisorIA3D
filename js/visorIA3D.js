@@ -111,9 +111,9 @@ require([
   });
 
 // Función para construir la capa con todas las rutas
-
+// CAPA VIEJA: url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/migrations/FeatureServer/0",
   const featureLayerRutas = new FeatureLayer({
-    url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/migrations/FeatureServer/0",
+    url: "https://gis.inia.es/server/rest/services/CISA/Map_rutas_nutsprov_server/MapServer/0",
     copyright: "CISA-INIA-CSIC",
     title: "Movements",
     outFields: ["*"],

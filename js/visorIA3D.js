@@ -110,6 +110,13 @@ require([
 
   });
 
+
+  const elevationOptions = {
+  sourceType: "on-the-ground",
+  };
+
+  
+
 // Función para construir la capa con todas las rutas
 // CAPA VIEJA: url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/migrations/FeatureServer/0",
   const featureLayerRutas = new FeatureLayer({
@@ -142,7 +149,8 @@ require([
     availableFields: true,
 
   });
-
+      
+  featureLayerRutas.setElevation(elevationOptions);
 
 
   const rendererNuts = {

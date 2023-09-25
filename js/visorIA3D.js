@@ -258,7 +258,8 @@ require([
         var lineSymbol = {
           type: "simple-line", // new SimpleLineSymbol()
           color: [51, 200, 200, 0.8], // RGB color values as an array
-          width: element.properties.Total/15
+          //width: element.properties.Total/15
+          width: 0.3
         };
         var polylineGraphic = new Graphic({
           geometry: polyline, // Add the geometry created in step 4

@@ -441,7 +441,8 @@ require([
     const endBrotes = new Date(LastMonday);
     endBrotes.setDate(endBrotes.getDate() - 91);
 
-    timeSliderBrotes.values = [endBrotes, LastMonday];
+    //timeSliderBrotes.values = [endBrotes, LastMonday];
+    timeSliderBrotes.values = [startBrotes, LastMonday];
   });
 
 });

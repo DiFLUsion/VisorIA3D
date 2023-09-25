@@ -419,14 +419,14 @@ require([
 
     // hora de inicio del control deslizante de tiempo
     //Descomentar para volver a poner 3 meses
-   // const startBrotes = new Date();
-   // startBrotes.setHours(0, 0, 0, 0);
-   // startBrotes.setDate(startBrotes.getDate());
-   // startBrotes.setDate(startBrotes.getDate() - 455);
+    const startBrotes = new Date();
+    startBrotes.setHours(0, 0, 0, 0);
+    startBrotes.setDate(startBrotes.getDate());
+    startBrotes.setDate(startBrotes.getDate() - 455);
 
 //Comentar para quitar que el timeslider comience en 2020
-    const startBrotes = new Date('2020-01-01');
-    startBrotes.setHours(0, 0, 0, 0);
+    //const startBrotes = new Date('2020-01-01');
+   // startBrotes.setHours(0, 0, 0, 0);
 
     const LastMonday = new Date();
     LastMonday.setHours(0, 0, 0, 0);
@@ -441,8 +441,8 @@ require([
     const endBrotes = new Date(LastMonday);
     endBrotes.setDate(endBrotes.getDate() - 91);
 
-    //timeSliderBrotes.values = [endBrotes, LastMonday];
-    timeSliderBrotes.values = [startBrotes, LastMonday];
+    timeSliderBrotes.values = [endBrotes, LastMonday];
+    //timeSliderBrotes.values = [startBrotes, LastMonday];
   });
 
 });

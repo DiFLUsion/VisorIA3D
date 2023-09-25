@@ -98,7 +98,7 @@ require([
     symbolLayers: [
       new LineSymbol3DLayer({
         material: { color: [237, 237, 237, 0.3] },
-        size: 0.1
+        size: 0.3
       })
     ]
   });

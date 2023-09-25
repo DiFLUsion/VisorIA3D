@@ -418,10 +418,15 @@ require([
     layerViewBrotes = lv;
 
     // hora de inicio del control deslizante de tiempo
-    const startBrotes = new Date();
+    //Descomentar para volver a poner 3 meses
+   // const startBrotes = new Date();
+   // startBrotes.setHours(0, 0, 0, 0);
+   // startBrotes.setDate(startBrotes.getDate());
+   // startBrotes.setDate(startBrotes.getDate() - 455);
+
+//Comentar para quitar que el timeslider comience en 2020
+    const startBrotes = new Date('2020-01-01');
     startBrotes.setHours(0, 0, 0, 0);
-    startBrotes.setDate(startBrotes.getDate());
-    startBrotes.setDate(startBrotes.getDate() - 455);
 
     const LastMonday = new Date();
     LastMonday.setHours(0, 0, 0, 0);

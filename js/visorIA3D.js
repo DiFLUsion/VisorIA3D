@@ -72,7 +72,7 @@ require([
       returnGeometry: true,
       fieldInfos: [
         {
-          fieldName: 'report_date',
+          fieldName: 'DATE',
           format: {
             dateFormat: 'short-date'
           }
@@ -85,7 +85,7 @@ require([
   function getInfoBrotes(feature) {
     content = "<p>Outbreak information: " +
       "<ul><li>Location: {location}.</li>" +
-      "<li>Report date: {report_date}.</li>" +
+      "<li>Report date: {DATE}.</li>" +
       "<li>Species: {species}.</li>" +
       "<li>Serotype: {serotype}.</li>" +
       "<li>More info: <a href='http://empres-i.fao.org/eipws3g/2/obd?idOutbreak={event_id}'> Enlace</a></li>";
@@ -113,12 +113,12 @@ require([
 
 
 
-  
+
 
 // Función para construir la capa con todas las rutas
 // CAPA VIEJA: url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/migrations/FeatureServer/0",
   const featureLayerRutas = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/CISA/Map_rutas_nutsprov_server/MapServer/0",
+    url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/rutasVisorAI/FeatureServer/0",
     copyright: "CISA-INIA-CSIC",
     title: "Movements",
     outFields: ["*"],
@@ -147,7 +147,7 @@ require([
     availableFields: true,
 
   });
-      
+
 // Define elevationInfo and set it on the layer
   const currentElevationInfo = {
     mode: "on-the-ground"}
@@ -197,7 +197,7 @@ require([
   /// DEFINICIÓN DE LOS NUTS
 
   const featureLayerNuts = new FeatureLayer({
-    url: "https://sgaicsic.maps.arcgis.com/home/item.html?id=c905021ed0754db990ad2de300931612&view=service",
+    url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/NutsEuropeEspa%c3%b1a/FeatureServer/0",
     copyright: "CISA-INIA-CSIC",
     title: "Nuts",
     outFields: ['*'],

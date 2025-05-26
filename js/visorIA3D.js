@@ -56,8 +56,8 @@ require([
     type: "simple", // autocasts as new SimpleRenderer()
     symbol: iconSymbol
   };
-  // Request feature layers and overwrite renderer https://gis.inia.es/server/rest/services/CISA/brotes_IA_sql/MapServer/0
-    // url: "https://gis.inia.es/server/rest/services/CISA/brotes_FAO_XY/MapServer/0"
+
+    
   const featureLayerBrotes = new FeatureLayer({
     url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/IAAP_WAHIS/FeatureServer/0",
     copyright: "Influenza Aviar",

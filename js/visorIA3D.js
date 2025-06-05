@@ -61,12 +61,12 @@ require([
   const featureLayerBrotes = new FeatureLayer({
     url: "https://gis.inia.es/server/rest/services/CISA/outbreaks_HPAI/FeatureServer/0",
     copyright: "Influenza Aviar",
-    title: "Brotes",
+    title: "Outbreak",
     outFields: ['*'],
     visible: true,
     renderer: iconSymbolRenderer,
     popupTemplate: {
-      title: "Pais: {country}",
+      title: "Outbreak information",
       content: getInfoBrotes,
       visible: false,
       returnGeometry: true,
@@ -83,10 +83,12 @@ require([
 
 
   function getInfoBrotes(feature) {
-    content = "<p>Outbreak information: " +
+    content = "<p>Country: {country_name}" +
      
       "<ul><li>Report date: {DATE}</li>" +
-      "<li>Species: {species}</li><ul>" ;
+      "<li>Species: {species}</li><ul>"
+      
+      + "<ul>";
 
     return content;
 

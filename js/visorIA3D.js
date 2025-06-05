@@ -68,7 +68,6 @@ require([
     popupTemplate: {
       title: "Outbreak information",
       content: getInfoBrotes,
-      visible: false,
       returnGeometry: true,
       fieldInfos: [
         {
@@ -82,17 +81,13 @@ require([
   });
 
 
-  function getInfoBrotes(feature) {
-    content = "<p>Country: {country_name}" +
-     
-      "<ul><li>Report date: {DATE}</li>" +
-      "<li>Species: {species}</li> 
-      
-      + "<ul>";
-
-    return content;
-
-  }
+function getInfoBrotes(feature) {
+  return "<p>Country: {country_name}</p>" +
+         "<ul>" +
+         "<li>Report date: {DATE}</li>" +
+         "<li>Species: {species}</li>" +
+         "</ul>";
+}
 
   var lineSymbolMigrations = new LineSymbol3D({
     symbolLayers: [

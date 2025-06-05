@@ -59,7 +59,7 @@ require([
 
     
   const featureLayerBrotes = new FeatureLayer({
-    url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/IAAP_WAHIS/FeatureServer/0",
+    url: "https://gis.inia.es/server/rest/services/CISA/outbreaks_HPAI/FeatureServer/0",
     copyright: "Influenza Aviar",
     title: "Brotes",
     outFields: ['*'],

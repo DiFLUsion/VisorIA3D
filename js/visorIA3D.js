@@ -87,8 +87,7 @@ require([
       "<ul><li>Location: {location}.</li>" +
       "<li>Report date: {DATE}.</li>" +
       "<li>Species: {species}.</li>" +
-      "<li>Serotype: {serotype}.</li>" +
-      "<li>More info: <a href='http://empres-i.fao.org/eipws3g/2/obd?idOutbreak={event_id}'> Enlace</a></li>";
+      "<li>Serotype: {serotype}.</li>";
 
     return content;
 

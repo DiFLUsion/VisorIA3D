@@ -84,10 +84,9 @@ require([
 
   function getInfoBrotes(feature) {
     content = "<p>Outbreak information: " +
-      "<ul><li>Location: {location}.</li>" +
-      "<li>Report date: {DATE}.</li>" +
-      "<li>Species: {species}.</li>" +
-      "<li>Serotype: {serotype}.</li>";
+     
+      "<ul><li>Report date: {DATE}</li>" +
+      "<li>Species: {species}</li><ul>" ;
 
     return content;
 

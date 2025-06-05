@@ -86,7 +86,7 @@ require([
     content = "<p>Country: {country_name}" +
      
       "<ul><li>Report date: {DATE}</li>" +
-      "<li>Species: {species}</li><ul>"
+      "<li>Species: {species}</li> 
       
       + "<ul>";
 

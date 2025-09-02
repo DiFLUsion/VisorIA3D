@@ -71,7 +71,7 @@ require([
       returnGeometry: true,
       fieldInfos: [
         {
-          fieldName: 'DATE',
+          fieldName: 'date',
           format: {
             dateFormat: 'short-date'
           }

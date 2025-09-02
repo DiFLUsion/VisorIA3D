@@ -71,7 +71,7 @@ require([
       returnGeometry: true,
       fieldInfos: [
         {
-          fieldName: 'date',
+          fieldName: 'Reporting_date',
           format: {
             dateFormat: 'short-date'
           }
@@ -84,7 +84,7 @@ require([
 function getInfoBrotes(feature) {
   return "<p>Country: {country_name}</p>" +
          "<ul>" +
-         "<li>Report date: {DATE}</li>" +
+         "<li>Report date: {Reporting_date}</li>" +
          "<li>Species: {species}</li>" +
           "" +
          "</ul>";

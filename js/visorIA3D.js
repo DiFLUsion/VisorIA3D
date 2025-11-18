@@ -357,7 +357,7 @@ view.ui.add(timeSliderBrotes, "manual");
 view.whenLayerView(featureLayerBrotes).then(function (lv) {
   layerViewBrotes = lv;
 
-  const startBrotes = new Date(2003, 0, 1);
+  const startBrotes = new Date(2020, 0, 1);
   const LastMonday = new Date();
   LastMonday.setHours(0, 0, 0, 0);
   LastMonday.setDate(LastMonday.getDate());

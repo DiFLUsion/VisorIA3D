@@ -279,20 +279,31 @@ const map = new Map({
   layers: [featureLayerBrotes, featureLayerNuts, featureLayerRutas]
 });
 
-// Create the SceneView and set initial camera
-const view = new SceneView({
-  container: "viewDiv",
-  map: map,
-  camera: {
-    position: { latitude: 20.0, longitude: -105.0, z: 10000000 },
-    tilt: 11.5,
-    heading: 1
-  },
-  highlightOptions: { color: "cyan" }
-});
 
-view.constraints = { minScale: 147000000 };
+  // Create the SceneView and set initial camera
+  const view = new SceneView({
+    container: "viewDiv",
+    map: map,
+    camera: {
+            position: {
+                latitude: 22.00000,
+                longitude: 22.00000,
+                z: 7034560
+            },
+            tilt: 16.5,
+            heading: 1
+        },
 
+
+    highlightOptions: {
+      color: "cyan"
+    }
+  });
+
+  view.constraints = {
+
+    minScale: 147000000
+  };
 // Leyenda
 const legendExpand = new Expand({
   collapsedIconClass: "esri-icon-legend",

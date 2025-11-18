@@ -102,89 +102,176 @@ var lineSymbolMigrations = new LineSymbol3D({
 
 var rendererMigrations = new SimpleRenderer({ symbol: lineSymbolMigrations });
 
-const featureLayerRutas = new FeatureLayer({
-  url: "https://services.arcgis.com/8df8p0NlLFEShl0r/arcgis/rest/services/rutas_UsaFinal/FeatureServer",
-  copyright: "EySA | INIA-CSIC",
-  title: "Movements",
-  outFields: ["*"],
-  renderer: rendererMigrations,
-  popupTemplate: {
-    title: "Group: {Group_spec}<br>Total number of banding records: {Total}"
-  },
-  visible: false,
-  availableFields: true
-});
 
-const rendererNuts = {
-  type: "simple",
-  symbol: {
-    type: "simple-fill",
-    color: [178, 220, 247, 0.03],
-    outline: { color: [4, 178, 194], width: 1 }
-  }
-};
-
-window.onload = function () {
-  document.getElementById("migrations").addEventListener("click", activarMigrations);
-  view.ui.add(migrations, "top-right");
-};
-
-function activarMigrations() {
-  featureLayerRutas.visible = !featureLayerRutas.visible;
-}
-
-/// DEFINICIÓN DE LOS NUTS
-const featureLayerNuts = new FeatureLayer({
-  url: "https://services.arcgis.com/8df8p0NlLFEShl0r/ArcGIS/rest/services/nuts_USA/FeatureServer/0",
-  copyright: "EySA | INIA-CSIC",
-  title: "Nuts",
-  outFields: ["*"],
-  visible: true,
-  renderer: rendererNuts,
-  supportsQuery: true,
-  popupTemplate: {
-    title: "Admin: {ADMIN_NAME},<br>Country: {CNTRY_NAME}",
-    content: getInfoComarcas,
+// Función para construir la capa con todas las rutas
+// CAPA VIEJA: url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/migrations/FeatureServer/0",
+  const featureLayerRutas = new FeatureLayer({
+    url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/rutasVisorAI/FeatureServer/0",
+    copyright: "CISA-INIA-CSIC",
+    title: "Movements",
+    outFields: ["*"],
+    renderer: rendererMigrations,
+    popupTemplate: {
+      title: "Group: {Grupo}",
+      /* content: [
+          {
+              type: "fields",
+              fieldInfos: [
+                  {
+                      fieldName: "species",
+                      label: "Especie",
+                      visible: true
+                  },
+              {
+                  fieldName: "idAlerta",
+                  label: "Codigo",
+                  visible: true
+              },
+              ]
+          }
+      ] */
+    },
     visible: false,
-    returnGeometry: true
-  }
-});
+    availableFields: true,
 
-/// ESTA FUNCIÓN PROGRAMA EL POPUPTEMPLATE
-function getInfoComarcas(feature) {
-  var graphic = feature.graphic;
-  var attributes = graphic.attributes;
-
-  var urlRutas = "https://raw.githubusercontent.com/josh4ever/applicacionWeb.github.io/main/GeoJSON/rutasUsa.geojson";
-  var request = new XMLHttpRequest();
-  request.open("GET", urlRutas, false);
-  request.send(null);
-  let rutas = JSON.parse(request.responseText);
-
-  for (let index = 0; index < rutas.features.length; index++) {
-    const element = rutas.features[index];
-    if (element.properties.FIPS_ADMIN_Recov == attributes.FIPS_ADMIN ||
-        element.properties.FIPS_ADMIN_banding == attributes.FIPS_ADMIN) {
-      var polyline = { type: "polyline", paths: element.geometry.coordinates };
-      var lineSymbol = { type: "simple-line", color: [51, 200, 200], width: 1 };
-      var polylineGraphic = new Graphic({
-        geometry: polyline,
-        symbol: lineSymbol,
-        popupTemplate: {
-          title: "Group_spec: " + element.properties.Group_spec + "<br>Total: " + element.properties.Total,
-          content: getInfoComarcas,
-          visible: false,
-          returnGeometry: true
-        }
-      });
-      view.graphics.add(polylineGraphic);
-    }
-  }
-
-  view.on("hold", function () {
-    view.graphics.removeAll();
   });
-}
+
+// Define elevationInfo and set it on the layer
+  const currentElevationInfo = {
+    mode: "on-the-ground"}
+
+
+  featureLayerRutas.elevationInfo = currentElevationInfo;
+
+
+  const rendererNuts = {
+    type: "simple",
+    symbol: {
+      type: "simple-fill",
+      color: [178, 220, 247, 0.03],
+      outline: {
+        color: [250, 250, 250],
+        width: 1.25
+      }
+    }
+  };
+
+// Boton todas las rutas (ahora mismo coge las localizaciones exactas de anillamiento-recogida)
+// El botón está desactivado en el html
+
+
+  window.onload = function () {
+    document.getElementById("migrations").addEventListener("click", activarMigrations);
+
+    view.ui.add(migrations, "top-right");
+
+  }
+
+
+
+
+  function activarMigrations(feature) {
+    if (featureLayerRutas.visible === false) {
+      return featureLayerRutas.visible = true;
+    } else {
+      return featureLayerRutas.visible = false;
+    }
+
+  }
+
+
+
+
+  /// DEFINICIÓN DE LOS NUTS
+
+  const featureLayerNuts = new FeatureLayer({
+    url: "https://services-eu1.arcgis.com/WCEIifo5j3luTcRc/ArcGIS/rest/services/NutsEuropeEspa%c3%b1a/FeatureServer/0",
+    copyright: "CISA-INIA-CSIC",
+    title: "Nuts",
+    outFields: ['*'],
+    visible: true,
+    renderer: rendererNuts,
+    supportsQuery: true,
+    popupTemplate: {
+      title:  "Admin: {ADMIN_name}" +
+              "<br>Admin type: {ADMINTYPE}" +
+              "<br>Country: {COUNTRY}"/*  +
+            "<br>Group: {Group_spec_1}</br>" */,
+      content: getInfoComarcas,
+      visible: false,
+      returnGeometry: true,
+    },
+
+
+  });
+
+
+
+  /// ESTA FUNCIÓN PROGRAMA EL POPUPTEMPLATE
+  function getInfoComarcas(feature) {
+
+    /* view.graphics.removeAll() */
+
+    var graphic, attributes;
+
+    graphic = feature.graphic;
+    attributes = graphic.attributes;
+    /* console.log("Atributes:" + attributes)
+    Region de origen --> ISO_CODE
+    https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutasVisorInfluenza.geojson
+    https://raw.githubusercontent.com/influenzaAviar/applicacionWeb/main/GeoJSON/rutas_visorIA.geojson*/
+
+
+    var urlRutas = 'https://raw.githubusercontent.com/DiFLUsion/VisorIA3D/main/GeoJSON/rutasVisorAI.geojson';
+    // Se inicia la peticion ajax a la url ruta
+
+    var request = new XMLHttpRequest();
+    request.open("GET", urlRutas, false); // false for synchronous request
+    request.send(null);
+    let rutas = JSON.parse(request.responseText)
+    console.log('obj ruta', rutas)
+
+    for (let index = 0; index < rutas.features.length; index++) {
+      const element = rutas.features[index];
+      console.log('element', element)
+
+
+      // element son las rutas y attributes la capa de nuts
+
+      if (element.properties.Provincia_de_destino == attributes.rotulo || element.properties.Region_de_origen == attributes.iso_code ) {
+        var polyline = {
+          type: "polyline", // new Polyline()
+          paths: element.geometry.coordinates
+        };
+        var lineSymbol = {
+          type: "simple-line", // new SimpleLineSymbol()
+          color: [51, 200, 200, 0.8], // RGB color values as an array
+          //width: element.properties.Total/15
+          width: 0.3
+        };
+        var polylineGraphic = new Graphic({
+          geometry: polyline, // Add the geometry created in step 4
+          symbol: lineSymbol, // Add the symbol created in step 5
+          popupTemplate: {
+            title: "Species group: " + element.properties.Grupo +
+              "<br>Total: " + element.properties.Total/*  +
+                  "<br>Group: {Group_spec_1}</br>" */,
+            content: getInfoComarcas,
+            visible: false,
+            returnGeometry: true,
+          },
+        });
+        view.graphics.add(polylineGraphic);
+      }
+    }
+
+    view.on("hold", function (e) {
+      view.graphics.removeAll(polylineGraphic);
+      console.log("Remove")
+    })
+
+
+  }
 
 // Create the Map
 const map = new Map({
